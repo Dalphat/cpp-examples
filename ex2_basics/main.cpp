@@ -40,6 +40,7 @@ int main() {
 	std::cin.clear();
 	std::cin.ignore(256, '\n');
 	std::cout << "\nPress enter/return to exit application ";
+	std::string buffer;
 	std::getline(std::cin, choice);
 
 	return 0;
