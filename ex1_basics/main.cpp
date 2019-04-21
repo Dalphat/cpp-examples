@@ -44,7 +44,10 @@ int main() {
 				  << "\nDescription: " << description
 				  << "\nFavorite Number: " << favorite;
 
-	}
+    }
+    else {
+        std::cout << "\nInvalid data, processing canceled.";
+    }
 
 	//The following will wait for the to press enter/return before exiting.
 	std::cin.clear();//Clears error in cin, if any.

@@ -29,7 +29,7 @@ int main() {
         try {
             number = std::stoi(input);
             numbers[count++] = number;
-        }catch (std::exception &e) {
+        }catch (...) {
             std::cout << "\nInvalid input, try again";
         }
     }
