@@ -2,6 +2,7 @@
 
 //Task:
 //	Ask the user to select one of the three colors to print.
+//  Intentionally different to introduce const string literals: aka c-style strings.
 
 //Tools to the used and learnt:
 //	Conditional branching with "if statements" and "switch statements"
@@ -11,12 +12,14 @@
 
 int main() {
 	//Constant string literals, our results to the users choice.
-	const char *red   = "red",
-			   *green = "green",
-			   *blue  = "blue";
-
+    //  Left most constant keyword enforces values to be of type constant char; the characters are not mutable.
+    //  Second constant keyword enforces the pointer to not be mutable; character pointers cannot be changed.
+    //  Asterisk before variable names, declares these variables as pointers.
+	const char const *red   = "red",
+			         *green = "green",
+			         *blue  = "blue";
 	std::string choice;
-	const char *color = 0;
+	const char *color = 0;//Set color to point to 0 or null
 
 	std::cout << "Choose a color:";
 	std::cout << "\n1) " << red << "\n2) " << green << "\n3) " << blue << "\nChoice: ";
