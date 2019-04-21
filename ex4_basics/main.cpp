@@ -3,13 +3,14 @@
 //Task:
 //  Application prompts the user to select one of the three options.
 
-//Tools to be used and learnt: 
+//Tools to be used and learnt:
 //  Enumerators and switch
 
 #include <iostream>
 #include <string>
 
 int main() {
+    //Enumerator to manage index of string array.
     enum {
         NAME,
         DESCRIPTION,
@@ -17,6 +18,7 @@ int main() {
         EXIT,
         SIZE
     };
+    //Array of data: this allows us to couple to the data and make the strings contiguous (ptr)
     std::string data[SIZE];
 
     std::cout << "Welcome to the console Data entry application\n";
@@ -32,7 +34,7 @@ int main() {
         std::getline(std::cin, str);
         try {
             int index = std::stoi(str) - 1;
-            switch (index) {
+            switch (index) {//Compare the integer value at index against all the cases.
             case NAME:
                 str = "\nEnter new name: ";
                 break;
@@ -46,7 +48,7 @@ int main() {
                 std::cout << "Exiting Application";
                 running = false;
                 continue;
-            default:
+            default://Default cases if not any of the values we're expecting.
                 std::cout << "\nInvalid number!\n";
                 continue;
             }
@@ -57,12 +59,5 @@ int main() {
         catch (...) {//Catching all exceptions for logging.
             std::cout << "\nInvalid choice!\n";
         }
-
     }
-    //Handle enter press before exit:
-    std::cin.clear();
-    std::cin.ignore(256, '\n');
-    std::cout << "\nPress enter/return to exit application ";
-    std::string buffer;
-    std::getline(std::cin, buffer);
 }
