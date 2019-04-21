@@ -1,11 +1,10 @@
 //Description: Demonstrating simple Procedural Programming Methodology part 4
 
 //Task:
-//  Application prompts the user to select one of the three colors using an integer.
-//  If integer is 
+//  Application prompts the user to select one of the three options.
 
 //Tools to be used and learnt: 
-//  Enumerators, switch, and functions
+//  Enumerators and switch
 
 #include <iostream>
 #include <string>
