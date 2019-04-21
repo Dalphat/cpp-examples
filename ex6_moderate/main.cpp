@@ -1,7 +1,7 @@
 //Description: Demonstrating simple Procedural Programming Methodology part 5
 
 //Task:
-//  Excersize 5 with a class. Wasteful but 
+//  Excersize 5 with a class.
 
 //Tools to be used and learnt: 
 //  class
