@@ -1,7 +1,7 @@
 //Description: Demonstrating simple Procedural Programming Methodology part 5
 
 //Task:
-//  Excersize 4 with functions and a struct.
+//  Excersize 4 with functions and a struct. Minimal Change.
 
 //Tools to be used and learnt: 
 //  Pointers, functions and structs

@@ -1,16 +1,19 @@
-//Description: Demonstrating simple Procedural Programming Methodology part 5
+//Description: Demonstrating simple Structured Programming Methodology part 1
 
 //Task:
-//  Excersize 5 with a class.
+//  Excersize 5 with a class. We will be using class functions rather than functions and
+//      class member variables instead of local variables to main. We will be adopting
+//      our helper option function into our as a private member. Same applies for our enum.
+//      This will couple our original procedures with our class object 
 
 //Tools to be used and learnt: 
-//  class
+//  class: member functions, member variables, and encapsulation of data (scope).
 
 
 #include <iostream>
 #include <string>
 
-//Simple struct to manage user data.
+//Simple class to manage user data.
 class User {
 private:
     enum {
@@ -49,15 +52,15 @@ public:
     }
     void setDescription() {
         std::cout << "\nEnter new description: ";
-        std::getline(std::cin, name);
+        std::getline(std::cin, description);
     }
     void setFavorite() {
         std::cout << "\nEnter new favorite color: ";
-        std::getline(std::cin, name);
+        std::getline(std::cin, favorite);
     }
     bool run() {
         try {
-            int index = option();//Amphersand pass' the address as an argument to the function.
+            int index = option();
             switch (index) {
             case NAME:
                 setName();

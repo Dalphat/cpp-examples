@@ -1,7 +1,8 @@
 //Description: Demonstrating simple Procedural Programming Methodology part 4
 
 //Task:
-//  Application prompts the user to select one of the three options.
+//  Simple application that will prompts the user to select and edit one of the three options.
+//  Same as the previous example, but using a switch-statement rather than if-statements.
 
 //Tools to be used and learnt:
 //  Enumerators and switch

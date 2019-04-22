@@ -1,13 +1,12 @@
 //Description: Demonstrating simple Procedural Programming Methodology part 3
 
 //Task:
-//  Make a command driven application that will terminate when requested by user or after 256
-//      numbers have been inserted.
-//  Use a string to validate entry and error check.
-//  Use Try and Catch to determine if an exception occurred.
+//  A simple command driven application that will terminate when requested by user or after 256 entries.
+//  Using a string to validate entry and error check.
+//  Using Try and Catch to determine if an exception occurred after parsing string.
 
 //Tools to be used and learnt: 
-//  Loops and primitive Array
+//  Loop, primitive array, try-catch, and string to integer parsing.
 
 #include <iostream>
 #include <string>
