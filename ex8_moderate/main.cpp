@@ -2,6 +2,7 @@
 
 //Task: Building a simple structure using knowledge from our previous example excersizes
 //      We will be demonstrating a simple dynamic array by using the doubly linked list implementation.
+//      Doubly Link List will handle range exception.
 
 //Our Doubly Linked List interface object (A class that manages the behavior of our Nodes)
 //  Our DLL will support simple functions: #push_back(T), #pop_bck(), #insert(int, T), and #erase(int).
@@ -9,6 +10,7 @@
 //  We will also override the operator[] to further familiarize/associate this interface with arrays.
 
 #include <iostream>
+#include <sstream>
 #include <string>
 
 template<class T>
@@ -24,6 +26,14 @@ private:
         Node *prev,
              *next;
     };
+    std::stringstream ss;
+    std::string out_of_range(int index) {
+        ss.str(std::string());//Clear the ss if an error occurs.
+        std::size_t size_v = size();
+        ss << "\n\n\tError\tOut of Range:" 
+           << "\tAccess of element [" << index << "] where size " << size_v << '\n';
+        return ss.str();
+    }
     //Our node will not be public exposed to the user, this will help prevent accidental memory leakage.
     Node<T> *head;
 public:
@@ -73,7 +83,8 @@ public:
             curr = curr->next;
         if (curr)
             return curr->value;
-        return 0;//Return null(0) if current was null
+        throw std::out_of_range(out_of_range(index));
+        //Throw out of range error.
     }
     void push_back(T value) {
         Node<T> *curr = head;
@@ -106,6 +117,7 @@ public:
             if(prev)
                 prev->next = 0;
         }
+        //No throw on empty list.
     }
     void insert(int index, T value) {
         if (head) {
@@ -124,6 +136,9 @@ public:
                     next->prev = curr;
             }
         }
+        else {
+            throw std::out_of_range(out_of_range(index));
+        }
     }
     void erase(int index) {
         if (head) {
@@ -132,8 +147,8 @@ public:
             for (int i = 0; i < index && curr; ++i)
                 curr = curr->next;
             if (curr) {
-                Node<T> prev = curr->prev,
-                        next = curr->next;
+                Node<T> *prev = curr->prev,
+                        *next = curr->next;
                 delete curr;
                 if (prev)
                     prev->next = next;
@@ -141,6 +156,18 @@ public:
                     next->prev = prev;
             }
         }
+        else {
+            throw std::out_of_range(out_of_range(index));
+        }
+    }
+    std::size_t size() {
+        std::size_t size = 0;
+        Node<T> *curr = head;
+        while (curr) {
+            curr = curr->next;
+            ++size;
+        }
+        return size;
     }
 };
 
@@ -152,13 +179,23 @@ int main() {
     //  Initializing with curly braces will prevents compiler from accidentally "Narrowing Conversion"
     //  This will also avoid "Most vexing parse": https://en.wikipedia.org/wiki/Most_vexing_parse
     LinkedList<int> list;
-    for (int i = 0; i < 10; ++i)
-        list.push_back(i);
-    for (int i = 0; i < 10; ++i)
-        std::cout << list[i] << ' ';
+    try {
+        for (int i = 0; i < 10; ++i)
+            list.push_back(i);
+        for (std::size_t i = 0; i < list.size(); ++i)
+            std::cout << list[i] << ' ';
+        std::cout << '\n';
+        while (list.size() > 5)
+            list.erase(5);
+        for (std::size_t i = 0; i < list.size(); ++i)
+            std::cout << list[i] << ' ';
 
+        //std::cout << list[5] << '\n';//Example of out of range exception.
+    }
+    catch (std::exception &e) {
+        std::cout << e.what() << '\n';
+    }
     end();
-
     return 0;
 }
 void end() {
@@ -172,12 +209,19 @@ void end() {
 
 /*
     Note:
-        This program was checked with Valgrind to ensure no memory is leaked.
-        Memory leak can have an impact on sub-systems and would not be freed until the system is restarted.
-        However this applies to only sub-systems and should be freed by the OS after the application terminates.
-        
-        If process is to be run over long periods of time, it is best practice to be responsible and free all data
-        manually allocated.
+        Memory Leak:
 
-        Our example does so with class destructors: Are manually allocated data will be freed when destructor is called.
+            This program was checked with Valgrind to ensure no memory is leaked.
+
+            Memory leak can have an impact of applications and should be freed when application finishes.
+
+            OS will automatically free used memory on termination of applications but it is good practice to do
+            so ourselves. Also, Sub-Systems may not necessarily free memory on termination of the application 
+            hence why the program should be manually freed.
+
+            Our example does so with class destructors: Are manually allocated data will be freed when 
+            destructor is called.
+
+        Out of Range:
+            
 */
