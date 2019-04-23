@@ -1,7 +1,7 @@
 //Description: Demonstrating simple Procedural Programming Methodology part 2
 
 //Task:
-//	Simple application that asks the user to select one of the three colors and print the color.
+//  Simple application that asks the user to select one of the three colors and print the color.
 //  Introduces constant string literals: c-style strings.
 
 //Tools to the used and learnt:
@@ -16,14 +16,14 @@ int main() {
     //  Second constant keyword enforces the pointer to not be mutable; character pointers cannot be changed.
     //  Asterisk before variable names, declares these variables as pointers.
 	const char const *red   = "red",
-			         *green = "green",
-			         *blue  = "blue";
+			 *green = "green",
+			 *blue  = "blue";
 	std::string choice;
 	const char *color = 0;//Set color to point to 0 address also known as null.
 
 	std::cout << "Choose a color:";
 	std::cout << "\n1) " << red << "\n2) " << green << "\n3) " << blue << "\nChoice: ";
-	std::cin >> choice;
+	std::cin  >> choice;
 
 	if (choice == "1" || choice == red) {
 		color = red;
