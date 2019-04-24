@@ -4,6 +4,9 @@
 //      We will be demonstrating a simple dynamic array by using the doubly linked list implementation.
 //      Doubly Link List will handle range exception.
 
+//Tools to be used and learnt: 
+//  NEW keyword, operator overload[], scope defined object, throw exception.
+
 //Our Doubly Linked List interface object (A class that manages the behavior of our Nodes)
 //  Our DLL will support simple functions: #push_back(T), #pop_bck(), #insert(int, T), and #erase(int).
 //  Where integer values are the indices. (Since we do not allow access of nodes, we will not be manipulating by iter).
