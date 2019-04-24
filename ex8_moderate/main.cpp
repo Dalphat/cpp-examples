@@ -137,11 +137,11 @@ public:
                     prev->next = curr;
                 if(next)
                     next->prev = curr;
+                return;//Success
             }
         }
-        else {
-            throw std::out_of_range(out_of_range(index));
-        }
+        //Default Failure if null.
+        throw std::out_of_range(out_of_range(index));
     }
     void erase(int index) {
         if (head) {
@@ -157,11 +157,11 @@ public:
                     prev->next = next;
                 if (next)
                     next->prev = prev;
+                return;
             }
         }
-        else {
-            throw std::out_of_range(out_of_range(index));
-        }
+        //Default Failure if null.
+        throw std::out_of_range(out_of_range(index));
     }
     std::size_t size() {
         std::size_t size = 0;
@@ -226,5 +226,5 @@ void end() {
             destructor is called.
 
         Out of Range:
-            
+            If the selected index is not within range, our application should throw an out of range error.
 */
