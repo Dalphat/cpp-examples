@@ -2,25 +2,14 @@
 
 //Task:
 //	Prompt the user for his or her name, description, favorite number and print it.
-//  Very bloated with comments to help give awareness to fellow developers.
-//      Ideally the first commented statement will explain the following codes behavior.
-//      Comments following the initial comment may go into details about possible new components
-//      and can be ignored but is advised to at least skim over.
-//  There are Extra Comments below the main function that futher explains possible questions.
 
 //Tools to be used and learnt: 
-//	Comments and variables.
+//	Comments, includes, entry function, output/input stream, and variables.
 
-//  Learning about singled line Comments:
-//      These comments are considered single-lined comments.
-//      They are only valid for the line and only after the usage of two consecutive forwards slashes.
+//This is a single line comment
+/*This is a multi line comment*/
 
-/*  Learning about multiple line Comments:
-        These comments are considered multi-line and starts with an initial forward slash followed by
-            asterisk and ends with an asterisk followed by forward slash.
-        All lines written between the two tags will be considered comments and will not directly effect
-            the flow of your application in any way.
-*/
+//                                  --About Library/framework Inclusion--
 
 //  Learning about Inclusion of headers/frameworks/libraries:
 //  The following are inclusions from the c++ standard library.
@@ -30,15 +19,20 @@
                     //  by IO stream, you are given a large variety of functionality with strings when
                     //  including the actual library.
 
+
+//                                  --About Namespace (We are not using namespaces)--
 //  Learning about Namespaces: std also known as the standard c++ library.
 //      Intentionally displayed for illustrations but commented because our applications will
 //          not be using global namespaces. If anything, you can use namespaces within limited
 //          scopes to not create ambiguity with other users of your application. 
 //using namespace std;
 
+//                                  --About Actual Program--
 //The following line is the "Global main function" and the starting point of our application:
 //  It is required for most if not all standard c++ applications on hosted machines.
 int main() {
+
+    //                              --About Variables
 	//This is our variable declarations. They are memory reserved by our application
     //  for usage within our application. In this case, they are local to our main function
     //  and by default will only be available within this and any sub scopes.
@@ -47,9 +41,10 @@ int main() {
                                 //  Comma allows us to continue adding variables of the same type.
 
 	int favorite;				//Here we have an integer for the users favorite number
-	//Other primitive types can be learnt about here: https://www.geeksforgeeks.org/c-data-types/
+	//Other primitive types can be learnt about here: https://www.geeksforgeeks.org/c-data-types/ .
 
 
+    //                              --About output stream operation
 	//We will be using the standard's output stream called cout to display a string to the console.
     //  In this example, the const string literal on the "right hand side" (short for "rhs")
     //  is the string we are printing to the user. The operator<< is provided by stream objects
@@ -64,7 +59,7 @@ int main() {
 	//Next we will be printing multiple output to the console by appending the operator<<
     //  after each of our arguments-to-be-printed followed by more arguments and repeating until done. 
 	//	Note: '\n' is the an ascii escape "single-character" for newline.
-    //      More can be found here: https://en.cppreference.com/w/cpp/language/escape
+    //      More can be found here: https://en.cppreference.com/w/cpp/language/escape .
 	std::cout << "Hello " << name << "!\nWhat can you tell us about yourself?\nDescription: ";
 
     //We will be using standard's getline to acquire strings not delimited by white space character.

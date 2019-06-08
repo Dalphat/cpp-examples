@@ -1,13 +1,13 @@
 //Description: Demonstrating simple Structured Programming Methodology part 4
 
 //Task: Now that we've gotten experience with making our own dynamic array (doubly linked list),
-//      we will be instead using the pre built containers proveded by the c++
+//      we will be instead using the pre built containers provided by the c++
 //      standard library.
 
-//Tools to be used and learnt: 
+//Tools to be used and learnt:
 //      Array:  Fixed sized contiguous memory. Similar to primitive arrays but
 //              provides us with useful functions.
-//      Vector: Dynamically sized contiguous memory similar to array but enables resizing at some expense. 
+//      Vector: Dynamically sized contiguous memory similar to array but enables resizing at some expense.
 //		List:   Like vector but has cheaper reads and writes, however memory is not contiguous.
 //				Linked list vs Vector comparison from SO: https://stackoverflow.com/a/2209564
 //              Unordered Maps are fast at reading but are unordered.
