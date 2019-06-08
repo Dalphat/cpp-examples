@@ -134,6 +134,8 @@ namespace my {
                     int iResult;
                     setListening(true);
                     do {
+                        for (std::size_t i = 0; i < buffer_size.get(); ++i)
+                            buffer[i] = '\0';
                         iResult = recv(ConnectSocket, buffer, static_cast<int>(buffer_size.get()), 0);
                         if (iResult > 0)
                             log("Received: ", buffer, '\n');
