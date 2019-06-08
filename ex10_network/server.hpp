@@ -84,6 +84,10 @@ namespace my {
                 freeaddrinfo(result);
                 return;
             }
+            // Setup the socket to non blocking
+            unsigned long BLOCKING = 0, NONBLOCKING = 1;
+            ioctlsocket(server, FIONBIO, &NONBLOCKING);//Defaulting to non blocking.
+
             // Setup the TCP listening socket
             iResult = ::bind(server, result->ai_addr, (int)result->ai_addrlen);
             if (iResult == SOCKET_ERROR) {
